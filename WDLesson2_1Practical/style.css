@@ -9,15 +9,31 @@ selector{
 
 
 /* Challenge 1: Change color of the text for all the headings size 3 to blue */
+[
+  h1"blue"h1
+]
 
 /* Challenge 2: Change the size for the font for all headings size 1 to 60pt */
-      
+    {
+      h3
+      size 60 point
+    }
 /* Challenge 3: Change the style of the font for all spans to italic */
-
+{
+  italic/
+}
 /* Challenge 4: Change the family of font being used for all paragraphs to "Arial" */
-
+[
+  "arial"
+]
 /* Challenge 5: Change the family of font being used for all lists to "Comic Sans MS".  What element creates a list? */
-
+{
+  list-style-type:"comic Sans Ms"
+}
 /* Chalenge 6: Change the background color of the div to blue, color of the text to white and the weight of the font to bold. 
-      
+      [
+div blue
+font: blod
+[
+
 Hint:  You can specify several CSS rules for one element by separating the rules with commas.  Look at some example on w3schools */
