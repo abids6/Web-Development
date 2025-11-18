@@ -1,10 +1,10 @@
 Links
-      <a href="">Tutorial</a>
-      <a href="">Reference</a>
-      <a href="">Example</a>
-      <a href="">Exercises</a>
-      <a href="">Certification</a>
-
+      <a href="Tutorial.html">Tutorial</a>
+      <a href="Reference.html">Reference</a>
+      <a href="Example.html">Example</a>
+      <a href="Exercise.html">Exerc{ppi6/07uyo=p8g vvvvvvvv7g puk8m /tk/.ykmmbises</a>
+      <a href="">Certification</a>]
+  vv   fdbbx   d sN<babmzndfdmn;io[,;uipk]
 
 Banner
       <div> w3Schools.com </div>
