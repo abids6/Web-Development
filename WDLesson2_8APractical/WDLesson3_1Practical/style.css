@@ -20,6 +20,11 @@
     display:flex1;
 }
 /* Challenge 6: Justify contents and align items in the center for all elements with a class of center */
-
+{.center
+    align:items 
+}
 
 /* Challenge 7: When the user hovers an image change the color of the shadow to red */
+{
+    hover;image:shadow;red:
+}
