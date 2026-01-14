@@ -29,33 +29,35 @@ function recPerimeter(){
 */
 let pi = 3.1415926;
 
-function cirArea(){
-  let base = document.getElementById("base").value;
-  let height = document.getElementById("height").value;
+function cirArea() {
+  let r = parseFloat(document.getElementById("radius").value);
+  let output = document.getElementById("output");
 
-  base = parseFloat(base);
-  height = parseFloat(height);
-
-  let output = document.getElementById("triAreaOutput");
-    output.innerHTML = "Please enter numbers only.";
+  if (isNaN(r)) {
+    output.innerHTML = "Please enter a number.";
     return;
   }
 
-  let area = 0.5 * base * height;
+  let area = pi * r * r;
   output.innerHTML = area;
 
+
 }
 
-function cirPerimeter(){
- let r = parseFloat(document.getElementById("radius").value);
-  
+function cirPerimeter() {
+  let r = parseFloat(document.getElementById("radius").value);
+  let output = document.getElementById("output");
+
+  if (isNaN(r)) {
     output.innerHTML = "Please enter a number.";
     return;
+  }
 
-let output = document.getElementById("output");
-
-
+  let circumference = 2 * pi * r;
+  output.innerHTML = circumference;
 }
+
+
 
 /* Challenge Bonus: Complete the area and perimeter functions below for the triangle.  Guidelines,
       1) Create variables and retrieve the information from the text inputs you.
