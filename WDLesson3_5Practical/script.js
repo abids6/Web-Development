@@ -14,6 +14,10 @@ function recArea(){
 }
 
 function recPerimeter(){
+  let L = parseFloat(document.getElementById("length").value);
+  let W = parseFloat(document.getElementById("width").value);
+  let output = document.getElementById("output");
+
 
 }
 
@@ -26,10 +30,30 @@ function recPerimeter(){
 let pi = 3.1415926;
 
 function cirArea(){
+  let base = document.getElementById("base").value;
+  let height = document.getElementById("height").value;
+
+  base = parseFloat(base);
+  height = parseFloat(height);
+
+  let output = document.getElementById("triAreaOutput");
+    output.innerHTML = "Please enter numbers only.";
+    return;
+  }
+
+  let area = 0.5 * base * height;
+  output.innerHTML = area;
 
 }
 
 function cirPerimeter(){
+ let r = parseFloat(document.getElementById("radius").value);
+  
+    output.innerHTML = "Please enter a number.";
+    return;
+
+let output = document.getElementById("output");
+
 
 }
 
