@@ -6,7 +6,7 @@
 function volume(){
 
   /* Challenge 5: Are there any errors in retrieving and parsing the information from the text inputs? */
-  let r = parseInt(document.getElementById("radius").value);
+  let radius= parseInt(document.getElementById("radius").value);
   let height = parseInt(document.getElementById("height").value);
 
   /* Challenge 6: Does the variable output correctly create a reference to the output container? */
