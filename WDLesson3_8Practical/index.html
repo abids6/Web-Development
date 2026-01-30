@@ -1,47 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>WD Lesson 3.8 Practical</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script>
-
-    </script>
   </head>
+
   <body>
     <script src="script.js"></script>
+
     <div id="banner" class="container center">
       <h1>Error in JavaScript</h1>
     </div>
+
     <div class="container subbanner">
       <div>
-        <p>This practical will challenge you find syntax, runtime and logical errors through the code.  The more you practice troubleshooting programs the better you will get.</p>
-        <div class="heading"> Scenario</div>
-        Creating a program that calculations the volume of a cylinder.
+        <p>
+          This practical will challenge you to find syntax, runtime, and logical
+          errors through the code.
+        </p>
+        <div class="heading">Scenario</div>
+        Creating a program that calculates the volume of a cylinder.
       </div>
     </div>
 
     <div class="container">
       <div class="card">
-        <img src="volume-cylinder.png">
+        <img src="volume-cylinder.png" alt="Cylinder diagram">
       </div>
-      <div class="card"> 
-        <!-- For each challenge fix the error and explain the correction in the comment -->
 
-        <!-- Challenge 1:  What information is required for the calculation? -->
+      <div class="card">
         <input type="text" id="radius" placeholder="Enter radius">
+        <input type="text" id="height" placeholder="Enter height">
 
- 
-        <!-- Challenge 2: Are the event listener and handler correctly added?-->
-        <input type="button" value="Volume" onclick="Volume()>
+        <br><br>
 
-        <!-- Challenge 3: Does the id of the text input match the refenence to it in JS?-->
+        <input type="button" value="Volume" onclick="calculateVolume()">
+
         <p id="output"></p>
       </div>
     </div>
+
     <div id="footer" class="container center">
       <h3>WD Lesson 3.8 Practical</h3>
-    </div> 
+    </div>
   </body>
 </html>

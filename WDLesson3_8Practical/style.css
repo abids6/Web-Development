@@ -2,14 +2,20 @@ input[type="text"]{
   width:100px;
 }
 
-html,body{
-  margin:0 auto;
+html, body{
+  margin:0;
   font-family:Arial;
 }
+
+body{
+  padding-bottom:40px;
+}
+
 .container{
   display:flex;
   padding:10px;
 }
+
 .center{
   justify-content:center;
   align-items:center;
@@ -18,33 +24,34 @@ html,body{
 .subbanner{
   background-color:cornflowerblue;
 }
+
 #banner{
   background-color:blue;
   color:white;
 }
- #footer{
-   background-color:cornflowerblue;
-   color:white;
-   position:fixed;
-   left: 0;
-   right: 0;
-   bottom:0px;
-   height:30px;
- }
- #example{
-   padding:20px;
- }
- .heading{
-   font-weight:bold;
- }
 
- .card{
+#footer{
+  background-color:cornflowerblue;
+  color:white;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:30px;
+}
+
+.heading{
+  font-weight:bold;
+}
+
+.card{
   flex:1;
   margin:10px;
   padding:10px;
   border:1px solid gray;
   text-align:center;
 }
+
 .card img{
   width:100%;
 }
