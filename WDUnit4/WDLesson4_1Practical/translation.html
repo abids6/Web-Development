@@ -6,20 +6,24 @@
     <title>WD Lesson 4.1 Practical</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script>
-    function translateHouse(){
+      function translateHouse() {
         let lang = document.getElementById("language").value;
-        let house = ""
+        let output = document.getElementById("output");
+        let house = "";
 
-        // Challenge 9: If the language is equal to "Spanish", set house to "casa"
+        if (lang === "Spanish") {
+          house = "casa";
+        } else if (lang === "French") {
+          house = "maison";
+        } else if (lang === "German") {
+          house = "haus";
+        }
 
-        // Challenge 10: Make a similar decision for the other two languages in the drop down.
-
-        // Challenge 11: Display an appropriate message stating "house" in the specified language is given translation.       
-        
-
+        output.innerHTML = `<h3>"House" in ${lang} is ${house}</h3>`;
       }
     </script>
-   </head>
+  </head>
+
   <body>
     <nav class="container">
       <a href="index.html"> Home </a>
@@ -28,30 +32,25 @@
       <a href="translation.html"> Translation </a>
       <a href="guessing.html"> Guess Game </a>
     </nav>
+
     <div id="banner" class="container center">
-      <h1> Translation</h1>
-    </div>
-     <div class="container subbanner">
-      <div>
-        <div class="highlight">Scenario:</div>Translate "house" into the specified language.  Decide which language to use in order to translate.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card">
-        <h3> Translate house into another language </h3>
-        <select id="langauge">
-          <option disabled>Select language</option>
-          <option>Spanish</option>
-          <!-- Challenge 8: Add two more language as shown above -->
-           
-        </select>
-        <input type="button" onclick="translateHouse()" value="Translate">
-        <div id="output"></div>        
-      </div>
+      <h1>Translation</h1>
     </div>
 
-   <div id="footer" class="container center">
-      <h3>WD Lesson 4.1 Practical</h3>
+    <div class="container">
+      <div class="card">
+        <h3>Translate house into another language</h3>
+
+        <select id="language">
+          <option disabled selected>Select language</option>
+          <option>Spanish</option>
+          <option>French</option>
+          <option>German</option>
+        </select>
+
+        <input type="button" onclick="translateHouse()" value="Translate">
+        <div id="output"></div>
+      </div>
     </div>
   </body>
 </html>
