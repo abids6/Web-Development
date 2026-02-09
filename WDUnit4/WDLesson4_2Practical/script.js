@@ -1,25 +1,21 @@
-// General Guideline
-/*
-function name(){
-  // Step 1: Create variables for the information from the text inputs and the output element
+/* Challenge 2: Area calculator */
 
-  // Step 2: Complete the process
-  //    a) Perform any calculations necessary
-  //    b) Perform necessary decisions
+function area() {
+  // Step 1: Get inputs and output element
+  let length = Number(document.getElementById("length").value);
+  let width = Number(document.getElementById("width").value);
+  let output = document.getElementById("output");
 
-  // Step 3: Display the output
-
+  // Step 2: Decision + calculation
+  if (length <= 0 || width <= 0) {
+    output.innerHTML = "Inappropriate measurement";
+  } else {
+    let area = length * width;
+    output.innerHTML = "Area: " + area;
+  }
 }
-*/
 
-/* Challenge 2:  Create the function for Challenge 1 scenario */
-
-
-
-/* Challenge 3:  Complete the function for Pets Challenge on pets.html.  
-1) Review the HTML for the UI.  Remember dropdown boxes are just input.
-2) You will need to write HTML as part of the output.  
-   For example, output.innerHTML = `<input src="pic.png">` would place the image in the <div>*/
-function pet(){
-
+/* Challenge 3: Pets function (to be completed on pets.html) */
+function pet() {
+  // placeholder – complete on pets.html
 }
