@@ -1,3 +1,4 @@
+/* ===== AREA ===== */
 function area() {
   let length = Number(document.getElementById("length").value);
   let width = Number(document.getElementById("width").value);
@@ -10,23 +11,21 @@ function area() {
   }
 }
 
-/* Pets Challenge */
+/* ===== PETS ===== */
 function pet() {
-  // These ids MUST exist in pets.html:
-  // dropdown id="mood"  (happy/sad/etc)
-  // dropdown id="petType" (cat/dog/bear)
-  // output div id="petOutput"
+  let animal = document.getElementById("animal").value;
+  let emotion = document.getElementById("emotion").value;
+  let output = document.getElementById("output");
 
-  let mood = document.getElementById("mood").value;       // example: "funny" or "sad"
-  let petType = document.getElementById("petType").value; // example: "cat" "dog" "bear"
-  let out = document.getElementById("petOutput");
+  if (!animal || !emotion) {
+    output.innerHTML = "Please select an animal and an emotion.";
+    return;
+  }
 
-  // Build the image filename like: funnyCat.jpg, sadDog.jpg, etc.
-  // Make sure your file names match EXACTLY.
-  let file = mood + petType + ".jpg";  // example: "funnyCat.jpg"
+  let imageName = emotion + animal + ".jpg";
 
-  out.innerHTML = `
-    <h3>Your Pet:</h3>
-    <img src="${file}" alt="${mood} ${petType}" style="max-width:250px;">
+  output.innerHTML = `
+    <h3>${emotion} ${animal}</h3>
+    <img src="${imageName}" alt="${emotion} ${animal}" style="max-width:250px;">
   `;
 }
