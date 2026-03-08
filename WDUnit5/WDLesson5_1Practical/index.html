@@ -8,41 +8,74 @@
     <script src="script.js"></script>
     <style>
       .coef{
-        width:15px;
+        width:60px;
       }
     </style>
-   </head>
+  </head>
+
   <body id="body">
+
     <div id="banner" class="container center">
-      <h1> Compound Interest </h1>
+      <h1>Compound Interest</h1>
     </div>
+
     <div class="container subbanner">
       <div>
-        <p>Compound interest is the interest on a loan or deposit that accrues on both the initial principal and the accumulated interest from previous periods.</p>
-       </div>
+        <p>
+          Compound interest is the interest on a loan or deposit that accrues on both the
+          initial principal and the accumulated interest from previous periods.
+        </p>
+      </div>
     </div>
+
     <div class="container">
       <div id="panel">
-         <div class="card">
-          <img src="compoundInterest.png">
-          <p><span class="highlight">Scenario:</span>Allow the user to enter all information required in order to calculate the compound interest after <b>t</b> years.</p>
-          <hr>
-          <!-- Challenge 1: Create the UI based on the formula for calculating compound interest.  
-           Ensure to provide informative placeholder in the text inputs.  
-           Don't forget about the button.  Output is already created in the adjacent container -->
 
-           <input type =
+        <div class="card">
+          <img src="compoundInterest.png">
+
+          <p>
+            <span class="highlight">Scenario:</span>
+            Allow the user to enter all information required in order to calculate
+            the compound interest after <b>t</b> years.
+          </p>
+
+          <hr>
+
+          <!-- Challenge 1 UI -->
+
+          <p>Principal Amount (P)</p>
+          <input class="coef" id="principal" type="number" placeholder="Enter principal">
+
+          <p>Interest Rate (r %)</p>
+          <input class="coef" id="rate" type="number" placeholder="Enter rate">
+
+          <p>Times Compounded Per Year (n)</p>
+          <input class="coef" id="times" type="number" placeholder="Times per year">
+
+          <p>Number of Years (t)</p>
+          <input class="coef" id="years" type="number" placeholder="Years">
+
+          <br><br>
+
+          <button onclick="calculateInterest()">
+            Calculate Compound Interest
+          </button>
+
         </div>
+
       </div>
+
       <div class="card">
         <h1>Output</h1>
         <div id="output"></div>
       </div>
-    </div>
 
+    </div>
 
     <div id="footer" class="container center">
       <h3>Lesson 5.1 Practical</h3>
-    </div>  
+    </div>
+
   </body>
 </html>
