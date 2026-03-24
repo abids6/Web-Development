@@ -1,4 +1,5 @@
 function balance(){
+  alert("Function called");
   // Get input values from form
   let p = parseFloat(document.getElementById("p").value);
   let r = parseFloat(document.getElementById("r").value) / 100;
@@ -14,6 +15,10 @@ function balance(){
   let n = 1;
 
   let output = document.getElementById("output");
+  if (!output) {
+    alert("Output element not found");
+    return;
+  }
 
   // Build table HTML
   let build = `
