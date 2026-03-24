@@ -30,7 +30,7 @@ function calculateBMI() {
   let weight = parseFloat(document.getElementById("weight").value);
   let height = parseFloat(document.getElementById("height").value);
 
-  let bmi = (weight / (height * height)) * 703;
+  let bmi = weight / (height * height);
 
   document.getElementById("bmiOutput").innerHTML =
     "BMI: " + bmi.toFixed(1);

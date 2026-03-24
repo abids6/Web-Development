@@ -4,13 +4,13 @@
       3) Display the results in the appropriate element
 */
 function recArea(){
- let 1=document.getElementById("length");
- let 2=document.getElementById("width");
- let output=document.getElementById("output)")
+ let length=document.getElementById("length");
+ let width=document.getElementById("width");
+ let output=document.getElementById("output")
 
- let area=1.value * w.value;
+ let area=length.value * width.value;
 
- output.innerHTML area;
+ output.innerHTML = area;
 }
 
 function recPerimeter(){
@@ -18,7 +18,8 @@ function recPerimeter(){
   let W = parseFloat(document.getElementById("width").value);
   let output = document.getElementById("output");
 
-
+  let perimeter = 2 * (L + W);
+  output.innerHTML = perimeter;
 }
 
 
@@ -31,7 +32,7 @@ let pi = 3.1415926;
 
 function cirArea() {
   let r = parseFloat(document.getElementById("radius").value);
-  let output = document.getElementById("output");
+  let output = document.getElementById("cirAreaOutput");
 
   if (isNaN(r)) {
     output.innerHTML = "Please enter a number.";
@@ -46,7 +47,7 @@ function cirArea() {
 
 function cirPerimeter() {
   let r = parseFloat(document.getElementById("radius").value);
-  let output = document.getElementById("output");
+  let output = document.getElementById("cirPerimeterOutput");
 
   if (isNaN(r)) {
     output.innerHTML = "Please enter a number.";
@@ -65,9 +66,30 @@ function cirPerimeter() {
       3) Display the results in the appropriate element
 */
 function triArea(){
+  let base = parseFloat(document.getElementById("base").value);
+  let height = parseFloat(document.getElementById("height").value);
+  let output = document.getElementById("triAreaOutput");
 
+  if (isNaN(base) || isNaN(height)) {
+    output.innerHTML = "Please enter valid numbers.";
+    return;
+  }
+
+  let area = (base * height) / 2;
+  output.innerHTML = "Area: " + area;
 }
 
 function triPerimeter(){
+  let a = parseFloat(document.getElementById("sideA").value);
+  let b = parseFloat(document.getElementById("sideB").value);
+  let c = parseFloat(document.getElementById("sideC").value);
+  let output = document.getElementById("triPerimeterOutput");
 
+  if (isNaN(a) || isNaN(b) || isNaN(c)) {
+    output.innerHTML = "Please enter valid numbers.";
+    return;
+  }
+
+  let perimeter = a + b + c;
+  output.innerHTML = "Perimeter: " + perimeter;
 }

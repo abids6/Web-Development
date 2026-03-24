@@ -1,16 +1,21 @@
 function balance(){
-
-  // 1️⃣ retrieve values
+  // Get input values from form
   let p = parseFloat(document.getElementById("p").value);
   let r = parseFloat(document.getElementById("r").value) / 100;
   let t = parseInt(document.getElementById("t").value);
-
+  
+  // Validate inputs
+  if (isNaN(p) || isNaN(r) || isNaN(t) || p <= 0 || r <= 0 || t <= 0) {
+    alert("Please enter valid positive numbers for Principal, Interest Rate, and Time.");
+    return;
+  }
+  
   // n = 1 because yearly compounding
   let n = 1;
 
   let output = document.getElementById("output");
 
-  // 2️⃣ start table
+  // Build table HTML
   let build = `
   <table border="1" cellpadding="10">
     <tr>
@@ -19,13 +24,12 @@ function balance(){
     </tr>
   `;
 
-  // 3️⃣ loop through years
+  // Calculate balance for each year
   for(let year = 1; year <= t; year++){
-
-    // 4️⃣ compound interest formula
+    // A = P(1 + r/n)^(nt)
     let a = p * Math.pow((1 + r/n), (n * year));
 
-    // 5️⃣ build row
+    // Add row to table
     build += `
       <tr>
         <td>${year}</td>
@@ -34,10 +38,9 @@ function balance(){
     `;
   }
 
-  // 6️⃣ close table
+  // Close table
   build += "</table>";
 
-  // display
+  // Display the results
   output.innerHTML = build;
-
 }

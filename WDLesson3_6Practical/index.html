@@ -24,7 +24,11 @@
     <div class="solutions">
       <!-- Challenge 1: UI for Average program. Note: User will enter three grades as three separate inputs. -->
       <!-- Challenge 2 is in script.js -->
-      <input type="g1"
+      <input type="text" id="grade1" placeholder="Grade 1">
+      <input type="text" id="grade2" placeholder="Grade 2">
+      <input type="text" id="grade3" placeholder="Grade 3">
+      <button onclick="calculateAverage()">Calculate Average</button>
+      <div id="averageOutput"></div>
     </div>
     <div class="container subbanner">
       <div>
@@ -37,6 +41,12 @@
     <div class="solutions">
       <!-- Challenge 3: UI for Slope program.  Note: User will enter values for x1, y1, x2 and y2 as four separate inputs. -->
       <!-- Challenge 4 is in script.js -->
+      <input type="text" id="x1" placeholder="x1">
+      <input type="text" id="y1" placeholder="y1">
+      <input type="text" id="x2" placeholder="x2">
+      <input type="text" id="y2" placeholder="y2">
+      <button onclick="calculateSlope()">Calculate Slope</button>
+      <div id="slopeOutput"></div>
     </div>
     <div class="container subbanner">
       <div>
@@ -48,6 +58,11 @@
     <div class="solutions last">
       <!-- Challenge 5: UI for BMI program. Note: User will enter their height and weight as two separate inputs. -->
       <!-- Challenge 6 is in script.js -->
+      <input type="text" id="height" placeholder="Height (m)">
+      <input type="text" id="weight" placeholder="Weight (kg)">
+      <button onclick="calculateBMI()">Calculate BMI</button>
+      <div id="bmiOutput"></div>
+    </div>
     </div>
     <div id="footer" class="container center">
       <h3>WD Lesson 3.6 Practical</h3>

@@ -70,11 +70,6 @@ function checkProblem(){
        let response=parseFloat(document.getElementById("response").value);
        let output=document.getElementById("output");
 
-       let bulid="";
-
-       if(response===correct){
-              bulid="<img src= correct.webp>"
-
        // 3) msg
        let msg="";
 

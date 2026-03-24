@@ -9,7 +9,7 @@
   <body id="body">
     <script src="script.js"></script>
     <div id="banner" class="container center">
-      <h1> Simple Arthmetic Formulas</h1>
+      <h1> Simple Arithmetic Formulas</h1>
     </div>
     <nav class="container">
       <a href="index.html"> Home </a>
@@ -26,6 +26,18 @@
       <!-- Challenge Bonus: Add the above card for the triangle to index.html -->
       <div class="card">
         <!-- Challenge Bonus: Create the necessary UI in order to calculate the area and perimeter of a triangle.  This will require separate buttons for area and perimeter each with their own handler. -->
+        <h4>Triangle Area</h4>
+        Base: <input type="text" id="base"><br>
+        Height: <input type="text" id="height"><br>
+        <button onclick="triArea()">Calculate Area</button><br>
+        <div id="triAreaOutput"></div>
+
+        <h4>Triangle Perimeter</h4>
+        Side A: <input type="text" id="sideA"><br>
+        Side B: <input type="text" id="sideB"><br>
+        Side C: <input type="text" id="sideC"><br>
+        <button onclick="triPerimeter()">Calculate Perimeter</button><br>
+        <div id="triPerimeterOutput"></div>
 
         <!-- Go to script.js to complete Challenge Bonus --> 
       </div>
