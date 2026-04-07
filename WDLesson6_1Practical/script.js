@@ -17,15 +17,15 @@ let dessert_prices = [8.99, 9.99, 7.99];
 function init(){
   //Each food has its own output container
   let m = document.getElementById("meats");
-  let s = document.getElementById("seafoods");
-  let d = document.getElementById("desserts");
+  let s = document.getElementById("seafood");
+  let d = document.getElementById("dessert");
   let build = ``;
   //Challenge 4:  Build cards for the meats. Place the build in the meat container. 
 for(let i = 0; i < meats.length; i+=1){
   build += ` <div class="card">
   <h2> ${meat_titles[i]}</h2>
-  <img src ="images/${meats[i]}"> 
-  <span>${meat_prices[i]}</span>
+  <img src="images/${meats[i]}" class="food"> 
+  <span>$${meat_prices[i]}</span>
   </div>`;
 }
   m.innerHTML = build;
@@ -34,8 +34,8 @@ for(let i = 0; i < meats.length; i+=1){
   for(let i = 0; i < seafood.length; i+=1){
     build += ` <div class="card">
     <h2> ${seafood_titles[i]}</h2>
-    <img src ="images/${seafood[i]}"> 
-    <span>${seafood_prices[i]}</span>
+    <img src="images/${seafood[i]}" class="food"> 
+    <span>$${seafood_prices[i]}</span>
     </div>`;
   }
   s.innerHTML = build;
@@ -44,8 +44,8 @@ for(let i = 0; i < meats.length; i+=1){
   for(let i = 0; i < dessert.length; i+=1){
     build += ` <div class="card">
     <h2> ${dessert_titles[i]}</h2>
-    <img src ="images/${dessert[i]}"> 
-    <span>${dessert_prices[i]}</span>
+    <img src="images/${dessert[i]}" class="food"> 
+    <span>$${dessert_prices[i]}</span>
     </div>`;
   }
   d.innerHTML = build;

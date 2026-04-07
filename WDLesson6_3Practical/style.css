@@ -13,17 +13,19 @@ html,body{
 }
 
 nav{
-  background-color:cornflowerblue;
+  background-color:blue;
 }
 nav a{
-  color:black;
+  background-color:blue;
+  color:white;
   padding:10px;
   flex:1;
   text-decoration:none;
   text-align:center;
 }
 nav a:hover{
-  color:white;
+  background-color:lightcoral;
+  cursor:pointer;
 }
 .subbanner{
   background-color:cornflowerblue;
@@ -74,13 +76,11 @@ nav a:hover{
 .card a:hover{
   background-color:cornflowerblue;
 }
-#panel{
-  flex:1;
-}
+
 .card img{
   width:100%;
 }
-.food{
+.item{
   width:150px;
   height:150px;
   object-fit:cover;
