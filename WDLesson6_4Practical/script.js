@@ -1,6 +1,6 @@
 async function init(){
   // Challenge 1: Retrieve the FBI data from https://raw.githubusercontent.com/rcastro2/WebDevelopment/refs/heads/main/data/fbi.json
-  const link = "https://raw.githubusercontent.com/rcastro2/WebDevelopment/refs/heads/main/data/fbi.json";
+  const link = "https://raw.githubusercontent.com/rcastro2/WebDevelopment/main/data/fbi.json";
 
   try {
     const info = await fetch(link);
@@ -21,9 +21,18 @@ async function init(){
        https://mozilla.github.io/pdf.js/web/viewer.html?file=${...}
     */
 
-    const criminals = data.items || [];
+    let criminals = Array.isArray(data)
+      ? data
+      : data.items || data.results || data.records || data.people || [];
 
-    if (criminals.length === 0) {
+    if ((!Array.isArray(criminals) || criminals.length === 0) && typeof data === 'object' && data !== null) {
+      const firstArray = Object.values(data).find(value => Array.isArray(value) && value.length > 0);
+      if (firstArray) {
+        criminals = firstArray;
+      }
+    }
+
+    if (!Array.isArray(criminals) || criminals.length === 0) {
       build = "<p>No criminal records were found in the FBI data.</p>";
     } else {
       for (const criminal of criminals) {
