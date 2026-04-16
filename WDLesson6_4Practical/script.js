@@ -35,21 +35,28 @@ async function init(){
         const subjects = Array.isArray(criminal.subjects)
           ? criminal.subjects.map(subject => subject.name).filter(Boolean).join(", ")
           : "";
-        const posterUrl = (criminal.images && criminal.images[0] && criminal.images[0].original) || "";
-        const posterViewer = posterUrl
+        const posterData = criminal.images && criminal.images[0] ? criminal.images[0] : null;
+        const posterUrl = posterData ? posterData.original || posterData.large || posterData.thumb || "" : "";
+        const isPdf = posterUrl.toLowerCase().includes(".pdf");
+        const posterViewer = isPdf
           ? `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(posterUrl)}`
+          : "";
+
+        const posterMarkup = posterUrl
+          ? isPdf
+            ? `<p><a class="poster-link" target="_blank" rel="noopener noreferrer" href="${posterViewer}">View poster in PDF.js</a></p>`
+            : `<img src="${posterUrl}" alt="${title} poster" class="criminal-image" />`
           : "";
 
         build += `
           <section class="criminal-card">
             <h2>${title}</h2>
-            ${posterUrl ? `<img src="${posterUrl}" alt="${title} poster" class="criminal-image" />` : ""}
+            ${posterMarkup}
             <p><strong>Description:</strong> ${description}</p>
             ${subjects ? `<p><strong>Subjects:</strong> ${subjects}</p>` : ""}
             <p><strong>Aliases:</strong> ${aliases}</p>
             <p><strong>Reward:</strong> ${rewardText}</p>
             ${caseUrl ? `<p><a target="_blank" rel="noopener noreferrer" href="${caseUrl}">View FBI case page</a></p>` : ""}
-            ${posterViewer ? `<p><a class="poster-link" target="_blank" rel="noopener noreferrer" href="${posterViewer}">View poster in PDF.js</a></p>` : ""}
           </section>
         `;
       }
