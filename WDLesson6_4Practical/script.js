@@ -21,6 +21,39 @@ async function init(){
        https://mozilla.github.io/pdf.js/web/viewer.html?file=${...}
     */
 
+    const findPosterUrl = (criminal) => {
+      if (!criminal || typeof criminal !== 'object') return "";
+
+      const imageCandidates = [];
+
+      if (Array.isArray(criminal.images)) {
+        for (const img of criminal.images) {
+          if (!img || typeof img !== 'object') continue;
+          imageCandidates.push(img.original, img.large, img.thumb, img.url, img.image, img.poster);
+        }
+      }
+
+      imageCandidates.push(criminal.image, criminal.poster, criminal.url, criminal.pdf, criminal.pdf_url);
+
+      for (const candidate of imageCandidates) {
+        if (typeof candidate !== 'string' || candidate.trim() === "") continue;
+        const normalized = candidate.trim();
+        if (/\.(jpg|jpeg|png|gif|bmp|webp)(\?|$)/i.test(normalized) || /\.(pdf)(\?|$)/i.test(normalized)) {
+          return normalized;
+        }
+      }
+
+      const flatValues = Object.values(criminal).filter(value => typeof value === 'string');
+      for (const value of flatValues) {
+        const normalized = value.trim();
+        if (/\.(jpg|jpeg|png|gif|bmp|webp)(\?|$)/i.test(normalized) || /\.(pdf)(\?|$)/i.test(normalized)) {
+          return normalized;
+        }
+      }
+
+      return "";
+    };
+
     let criminals = Array.isArray(data)
       ? data
       : data.items || data.results || data.records || data.people || [];
@@ -44,8 +77,7 @@ async function init(){
         const subjects = Array.isArray(criminal.subjects)
           ? criminal.subjects.map(subject => subject.name).filter(Boolean).join(", ")
           : "";
-        const posterData = criminal.images && criminal.images[0] ? criminal.images[0] : null;
-        const posterUrl = posterData ? posterData.original || posterData.large || posterData.thumb || "" : "";
+        const posterUrl = findPosterUrl(criminal);
         const isPdf = posterUrl.toLowerCase().includes(".pdf");
         const posterViewer = isPdf
           ? `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(posterUrl)}`
