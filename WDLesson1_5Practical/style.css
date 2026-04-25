@@ -3,3 +3,13 @@ div, span{
     padding:10px;
     margin:10px;
 }
+
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+div img {
+    height: 100px;
+    margin: 5px;
+}
