@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Motor Vehicle Collisions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="banner" class="container center">
+        <h1>NYC Motor Vehicle Collisions</h1>
+    </div>
+
+    <div class="filters-section">
+        <h2>Filters</h2>
+        
+        <div class="filter-group">
+            <label>Borough:</label>
+            <select id="boroughFilter">
+                <option value="">All Boroughs</option>
+                <option value="MANHATTAN">Manhattan</option>
+                <option value="BROOKLYN">Brooklyn</option>
+                <option value="QUEENS">Queens</option>
+                <option value="BRONX">Bronx</option>
+                <option value="STATEN ISLAND">Staten Island</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Minimum Persons Injured:</label>
+            <input type="number" id="injuredFilter" min="0" max="50" placeholder="0">
+        </div>
+
+        <div class="filter-group">
+            <label>Filter Logic:</label>
+            <select id="filterLogic">
+                <option value="AND">AND (match all filters)</option>
+                <option value="OR">OR (match any filter)</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Has Persons Killed:</label>
+            <input type="checkbox" id="killedFilter">
+        </div>
+
+        <div class="button-group">
+            <button id="resetBtn">Reset Filters</button>
+            <button id="applyBtn">Apply Filters</button>
+        </div>
+    </div>
+
+    <div class="results-section">
+        <div id="loadingMessage" class="message">Loading collisions data...</div>
+        <div id="errorMessage" class="message error hidden"></div>
+        <div id="resultCount" class="result-count"></div>
+        <div id="cardsContainer" class="cards-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
