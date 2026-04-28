@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="banner" class="container center">
-        <h1>NYC Motor Vehicle Collisions</h1>
+    <div id="banner">
+        <h1>NYC Open Data</h1>
+        <p>Motor Vehicle Collisions</p>
     </div>
 
-    <div class="filters-section">
-        <h2>Filters</h2>
-        
-        <div class="filter-group">
-            <label>Borough:</label>
+    <div class="search-section">
+        <p>Use the search box below to filter dataset. The demonstration uses Motor Vehicle Collisions retrieved from NYC Open Data</p>
+        <div class="button-links">
+            <a href="#" class="btn-link">NYC Open Data</a>
+            <a href="#" class="btn-link">311 Service Requests</a>
+            <a href="#" class="btn-link">JSON Editor Online</a>
+        </div>
+    </div>
+
+    <div class="filter-section">
+        <label>Search By Borough</label>
+        <div class="filter-row">
             <select id="boroughFilter">
                 <option value="">All Boroughs</option>
                 <option value="MANHATTAN">Manhattan</option>
@@ -24,37 +32,38 @@
                 <option value="BRONX">Bronx</option>
                 <option value="STATEN ISLAND">Staten Island</option>
             </select>
+            <button id="applyBtn">Search</button>
         </div>
+    </div>
 
-        <div class="filter-group">
+    <div id="loadingMessage" class="message">Loading collisions data...</div>
+    <div id="errorMessage" class="message error hidden"></div>
+    <div id="resultCount" class="result-count"></div>
+
+    <div id="cardsContainer" class="cards-container"></div>
+
+    <div class="filter-section advanced">
+        <h3>Advanced Filters</h3>
+        
+        <div class="filter-row">
             <label>Minimum Persons Injured:</label>
             <input type="number" id="injuredFilter" min="0" max="50" placeholder="0">
         </div>
 
-        <div class="filter-group">
-            <label>Filter Logic:</label>
-            <select id="filterLogic">
-                <option value="AND">AND (match all filters)</option>
-                <option value="OR">OR (match any filter)</option>
-            </select>
-        </div>
-
-        <div class="filter-group">
+        <div class="filter-row">
             <label>Has Persons Killed:</label>
             <input type="checkbox" id="killedFilter">
         </div>
 
-        <div class="button-group">
-            <button id="resetBtn">Reset Filters</button>
-            <button id="applyBtn">Apply Filters</button>
+        <div class="filter-row">
+            <label>Match:</label>
+            <select id="filterLogic">
+                <option value="AND">All Filters</option>
+                <option value="OR">Any Filter</option>
+            </select>
         </div>
-    </div>
 
-    <div class="results-section">
-        <div id="loadingMessage" class="message">Loading collisions data...</div>
-        <div id="errorMessage" class="message error hidden"></div>
-        <div id="resultCount" class="result-count"></div>
-        <div id="cardsContainer" class="cards-container"></div>
+        <button id="resetBtn" class="reset-btn">Reset</button>
     </div>
 
     <script src="script.js"></script>
