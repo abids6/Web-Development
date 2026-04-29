@@ -49,7 +49,7 @@ function displayCards(collisions) {
         return;
     }
 
-    var cardsHTML = "";
+    var build = "";
 
     for (var i = 0; i < collisions.length; i += 1) {
         var collision = collisions[i];
@@ -65,43 +65,43 @@ function displayCards(collisions) {
             killedClass = "warning";
         }
 
-        cardsHTML += "<div class='card'>";
-        cardsHTML += "<h3>Collision Report</h3>";
+        build += "<div class='card'>";
+        build += "<h3>Collision Report</h3>";
 
-        cardsHTML += "<div class='card-info'>";
-        cardsHTML += "<span class='card-label'>Date</span>";
-        cardsHTML += "<span class='card-value'>" + date + "</span>";
-        cardsHTML += "</div>";
+        build += "<div class='card-info'>";
+        build += "<span class='card-label'>Date</span>";
+        build += "<span class='card-value'>" + date + "</span>";
+        build += "</div>";
 
-        cardsHTML += "<div class='card-info'>";
-        cardsHTML += "<span class='card-label'>Time</span>";
-        cardsHTML += "<span class='card-value'>" + time + "</span>";
-        cardsHTML += "</div>";
+        build += "<div class='card-info'>";
+        build += "<span class='card-label'>Time</span>";
+        build += "<span class='card-value'>" + time + "</span>";
+        build += "</div>";
 
-        cardsHTML += "<div class='card-info'>";
-        cardsHTML += "<span class='card-label'>Borough</span>";
-        cardsHTML += "<span class='card-value'>" + borough + "</span>";
-        cardsHTML += "</div>";
+        build += "<div class='card-info'>";
+        build += "<span class='card-label'>Borough</span>";
+        build += "<span class='card-value'>" + borough + "</span>";
+        build += "</div>";
 
-        cardsHTML += "<div class='card-info'>";
-        cardsHTML += "<span class='card-label'>Location</span>";
-        cardsHTML += "<span class='card-value'>" + street + "</span>";
-        cardsHTML += "</div>";
+        build += "<div class='card-info'>";
+        build += "<span class='card-label'>Location</span>";
+        build += "<span class='card-value'>" + street + "</span>";
+        build += "</div>";
 
-        cardsHTML += "<div class='card-info'>";
-        cardsHTML += "<span class='card-label'>Persons Injured</span>";
-        cardsHTML += "<span class='card-value'>" + injured + "</span>";
-        cardsHTML += "</div>";
+        build += "<div class='card-info'>";
+        build += "<span class='card-label'>Persons Injured</span>";
+        build += "<span class='card-value'>" + injured + "</span>";
+        build += "</div>";
 
-        cardsHTML += "<div class='card-info'>";
-        cardsHTML += "<span class='card-label'>Persons Killed</span>";
-        cardsHTML += "<span class='card-value " + killedClass + "'>" + killed + "</span>";
-        cardsHTML += "</div>";
+        build += "<div class='card-info'>";
+        build += "<span class='card-label'>Persons Killed</span>";
+        build += "<span class='card-value " + killedClass + "'>" + killed + "</span>";
+        build += "</div>";
 
-        cardsHTML += "</div>";
+        build += "</div>";
     }
 
-    cardsContainer.innerHTML = cardsHTML;
+    cardsContainer.innerHTML = build;
     resultCount.textContent = "Results: " + collisions.length + " collisions found";
 }
 
