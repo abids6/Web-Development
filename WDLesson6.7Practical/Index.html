@@ -22,7 +22,7 @@
     </div>
 
     <div class="filter-section">
-        <label>Search By Borough</label>
+        <label for="boroughFilter">Search By Borough</label>
         <div class="filter-row">
             <select id="boroughFilter">
                 <option value="">All Boroughs</option>
@@ -36,34 +36,34 @@
         </div>
     </div>
 
-    <div id="loadingMessage" class="message">Loading collisions data...</div>
-    <div id="errorMessage" class="message error hidden"></div>
-    <div id="resultCount" class="result-count"></div>
+    <div id="loadingMessage">Loading collisions data...</div>
+    <div id="errorMessage"></div>
+    <div id="resultCount"></div>
 
-    <div id="cardsContainer" class="cards-container"></div>
+    <div id="cardsContainer"></div>
 
     <div class="filter-section advanced">
         <h3>Advanced Filters</h3>
-        
+
         <div class="filter-row">
-            <label>Minimum Persons Injured:</label>
+            <label for="injuredFilter">Minimum Persons Injured:</label>
             <input type="number" id="injuredFilter" min="0" max="50" placeholder="0">
         </div>
 
         <div class="filter-row">
-            <label>Has Persons Killed:</label>
+            <label for="killedFilter">Has Persons Killed:</label>
             <input type="checkbox" id="killedFilter">
         </div>
 
         <div class="filter-row">
-            <label>Match:</label>
+            <label for="filterLogic">Match:</label>
             <select id="filterLogic">
                 <option value="AND">All Filters</option>
                 <option value="OR">Any Filter</option>
             </select>
         </div>
 
-        <button id="resetBtn" class="reset-btn">Reset</button>
+        <button id="resetBtn">Reset</button>
     </div>
 
     <script src="script.js"></script>

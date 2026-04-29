@@ -1,44 +1,45 @@
-let allCollisions = [];
-let filteredCollisions = [];
+var allCollisions = [];
+var filteredCollisions = [];
 
-const API_URL = "https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100";
+var API_URL = "https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100";
 
-const cardsContainer = document.getElementById("cardsContainer");
-const resultCount = document.getElementById("resultCount");
-const loadingMessage = document.getElementById("loadingMessage");
-const errorMessage = document.getElementById("errorMessage");
-const boroughFilter = document.getElementById("boroughFilter");
-const injuredFilter = document.getElementById("injuredFilter");
-const killedFilter = document.getElementById("killedFilter");
-const filterLogic = document.getElementById("filterLogic");
-const applyBtn = document.getElementById("applyBtn");
-const resetBtn = document.getElementById("resetBtn");
+var cardsContainer = document.getElementById("cardsContainer");
+var resultCount = document.getElementById("resultCount");
+var loadingMessage = document.getElementById("loadingMessage");
+var errorMessage = document.getElementById("errorMessage");
+var boroughFilter = document.getElementById("boroughFilter");
+var injuredFilter = document.getElementById("injuredFilter");
+var killedFilter = document.getElementById("killedFilter");
+var filterLogic = document.getElementById("filterLogic");
+var applyBtn = document.getElementById("applyBtn");
+var resetBtn = document.getElementById("resetBtn");
 
-// Load data when page starts
-async function loadData() {
+function loadData() {
     loadingMessage.classList.remove("hidden");
     errorMessage.classList.add("hidden");
     cardsContainer.innerHTML = "";
     resultCount.innerHTML = "";
 
-    try {
-        let response = await fetch(API_URL);
-        if (!response.ok) {
-            throw new Error("Failed to load data");
-        }
-        let data = await response.json();
-        allCollisions = data;
-        filteredCollisions = data;
-        loadingMessage.classList.add("hidden");
-        displayCards(filteredCollisions);
-    } catch (error) {
-        loadingMessage.classList.add("hidden");
-        errorMessage.classList.remove("hidden");
-        errorMessage.textContent = "Error: " + error.message;
-    }
+    fetch(API_URL)
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error("Failed to load data");
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            allCollisions = data;
+            filteredCollisions = data;
+            loadingMessage.classList.add("hidden");
+            displayCards(filteredCollisions);
+        })
+        .catch(function(error) {
+            loadingMessage.classList.add("hidden");
+            errorMessage.classList.remove("hidden");
+            errorMessage.textContent = "Error: " + error.message;
+        });
 }
 
-// Display cards on the page
 function displayCards(collisions) {
     cardsContainer.innerHTML = "";
 
@@ -48,19 +49,18 @@ function displayCards(collisions) {
         return;
     }
 
-    let cardsHTML = "";
+    var cardsHTML = "";
 
-    for (let i = 0; i < collisions.length; i++) {
-        let collision = collisions[i];
+    for (var i = 0; i < collisions.length; i += 1) {
+        var collision = collisions[i];
+        var date = collision.crash_date ? collision.crash_date : "N/A";
+        var time = collision.crash_time ? collision.crash_time : "N/A";
+        var borough = collision.borough ? collision.borough : "N/A";
+        var street = collision.on_street_name ? collision.on_street_name : "N/A";
+        var injured = collision.number_of_persons_injured ? collision.number_of_persons_injured : "0";
+        var killed = collision.number_of_persons_killed ? collision.number_of_persons_killed : "0";
+        var killedClass = "";
 
-        let date = collision.crash_date ? collision.crash_date : "N/A";
-        let time = collision.crash_time ? collision.crash_time : "N/A";
-        let borough = collision.borough ? collision.borough : "N/A";
-        let street = collision.on_street_name ? collision.on_street_name : "N/A";
-        let injured = collision.number_of_persons_injured ? collision.number_of_persons_injured : "0";
-        let killed = collision.number_of_persons_killed ? collision.number_of_persons_killed : "0";
-
-        let killedClass = "";
         if (killed > 0) {
             killedClass = "warning";
         }
@@ -105,22 +105,19 @@ function displayCards(collisions) {
     resultCount.textContent = "Results: " + collisions.length + " collisions found";
 }
 
-// Apply filters to collisions
 function applyFilters() {
-    let borough = boroughFilter.value;
-    let minInjured = injuredFilter.value;
-    let hasKilled = killedFilter.checked;
-    let logic = filterLogic.value;
-
+    var borough = boroughFilter.value;
+    var minInjured = injuredFilter.value;
+    var hasKilled = killedFilter.checked;
+    var logic = filterLogic.value;
     filteredCollisions = [];
 
-    for (let i = 0; i < allCollisions.length; i++) {
-        let collision = allCollisions[i];
-        let matchesBoroughFilter = false;
-        let matchesInjuredFilter = false;
-        let matchesKilledFilter = false;
+    for (var i = 0; i < allCollisions.length; i += 1) {
+        var collision = allCollisions[i];
+        var matchesBoroughFilter = false;
+        var matchesInjuredFilter = false;
+        var matchesKilledFilter = false;
 
-        // Check borough filter
         if (borough === "") {
             matchesBoroughFilter = true;
         } else {
@@ -129,25 +126,23 @@ function applyFilters() {
             }
         }
 
-        // Check injured filter
         if (minInjured === "") {
             matchesInjuredFilter = true;
         } else {
-            let injured = parseInt(collision.number_of_persons_injured);
+            var injured = parseInt(collision.number_of_persons_injured);
             if (isNaN(injured)) {
                 injured = 0;
             }
-            let minValue = parseInt(minInjured);
+            var minValue = parseInt(minInjured);
             if (injured >= minValue) {
                 matchesInjuredFilter = true;
             }
         }
 
-        // Check killed filter
         if (hasKilled === false) {
             matchesKilledFilter = true;
         } else {
-            let killed = parseInt(collision.number_of_persons_killed);
+            var killed = parseInt(collision.number_of_persons_killed);
             if (isNaN(killed)) {
                 killed = 0;
             }
@@ -156,9 +151,7 @@ function applyFilters() {
             }
         }
 
-        // Apply AND or OR logic
-        let shouldInclude = false;
-
+        var shouldInclude = false;
         if (logic === "AND") {
             if (matchesBoroughFilter && matchesInjuredFilter && matchesKilledFilter) {
                 shouldInclude = true;
@@ -177,7 +170,6 @@ function applyFilters() {
     displayCards(filteredCollisions);
 }
 
-// Reset all filters
 function resetFilters() {
     boroughFilter.value = "";
     injuredFilter.value = "";
@@ -187,10 +179,8 @@ function resetFilters() {
     displayCards(filteredCollisions);
 }
 
-// Event listeners
-applyBtn.addEventListener("click", applyFilters);
-resetBtn.addEventListener("click", resetFilters);
+applyBtn.onclick = applyFilters;
+resetBtn.onclick = resetFilters;
 
-// Load data when page loads
 loadData();
 
