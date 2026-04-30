@@ -8,63 +8,24 @@
 </head>
 <body>
     <div id="banner">
-        <h1>NYC Open Data</h1>
-        <p>Motor Vehicle Collisions</p>
-    </div>
-
-    <div class="search-section">
-        <p>Use the search box below to filter dataset. The demonstration uses Motor Vehicle Collisions retrieved from NYC Open Data</p>
-        <div class="button-links">
-            <a href="#" class="btn-link">NYC Open Data</a>
-            <a href="#" class="btn-link">311 Service Requests</a>
-            <a href="#" class="btn-link">JSON Editor Online</a>
-        </div>
+        <h1>NYC Motor Vehicle Collisions</h1>
+        <p>Search and filter collision data from NYC Open Data</p>
     </div>
 
     <div class="filter-section">
         <label for="boroughFilter">Search By Borough</label>
-        <div class="filter-row">
-            <select id="boroughFilter">
-                <option value="">All Boroughs</option>
-                <option value="MANHATTAN">Manhattan</option>
-                <option value="BROOKLYN">Brooklyn</option>
-                <option value="QUEENS">Queens</option>
-                <option value="BRONX">Bronx</option>
-                <option value="STATEN ISLAND">Staten Island</option>
-            </select>
-            <button id="applyBtn">Search</button>
-        </div>
+        <select id="boroughFilter">
+            <option value="">All Boroughs</option>
+            <option value="MANHATTAN">Manhattan</option>
+            <option value="BROOKLYN">Brooklyn</option>
+            <option value="QUEENS">Queens</option>
+            <option value="BRONX">Bronx</option>
+            <option value="STATEN ISLAND">Staten Island</option>
+        </select>
+        <button id="applyBtn">Search</button>
     </div>
 
-    <div id="loadingMessage">Loading collisions data...</div>
-    <div id="errorMessage"></div>
-    <div id="resultCount"></div>
-
-    <div id="cardsContainer"></div>
-
-    <div class="filter-section advanced">
-        <h3>Advanced Filters</h3>
-
-        <div class="filter-row">
-            <label for="injuredFilter">Minimum Persons Injured:</label>
-            <input type="number" id="injuredFilter" min="0" max="50" placeholder="0">
-        </div>
-
-        <div class="filter-row">
-            <label for="killedFilter">Has Persons Killed:</label>
-            <input type="checkbox" id="killedFilter">
-        </div>
-
-        <div class="filter-row">
-            <label for="filterLogic">Match:</label>
-            <select id="filterLogic">
-                <option value="AND">All Filters</option>
-                <option value="OR">Any Filter</option>
-            </select>
-        </div>
-
-        <button id="resetBtn">Reset</button>
-    </div>
+    <div id="output"></div>
 
     <script src="script.js"></script>
 </body>
