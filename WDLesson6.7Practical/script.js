@@ -1,73 +1,116 @@
 let data;
 
-async function init() {
+async function init(){
+
   let link = "https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100";
-  let info = await fetch(link);
+  info = await fetch(link);
   data = await info.json();
-  
+
   let output = document.getElementById("output");
   let build = "";
 
-  for(let i = 0; i < data.length; i += 1) {
+  for(let i = 0; i < data.length; i+=1){
     let collision = data[i];
-    let date = collision.crash_date ? collision.crash_date : "N/A";
-    let time = collision.crash_time ? collision.crash_time : "N/A";
-    let borough = collision.borough ? collision.borough : "N/A";
-    let street = collision.on_street_name ? collision.on_street_name : "N/A";
-    let injured = collision.number_of_persons_injured ? collision.number_of_persons_injured : "0";
-    let killed = collision.number_of_persons_killed ? collision.number_of_persons_killed : "0";
-    
-    build += "<div class='fitted card'>";
-    build += "<div class='card-title'>Motor Vehicle Collision</div>";
-    build += "<div class='card-section'>" + borough + "</div>";
-    build += "<div class='card-section'>" + injured + " Injured</div>";
-    build += "<div class='card-section'>" + street + "</div>";
-    build += "<div class='card-divider'></div>";
-    build += "<div class='card-section'>" + date + " " + time + "</div>";
-    build += "<div class='card-divider'></div>";
-    build += "<div class='card-section'>Casualties: " + killed + "</div>";
-    build += "</div>";
+
+    build += `<div class="fitted card">
+                <h3>${collision.borough}</h3>
+                <hr>
+                <p>${collision.crash_date}</p>
+                <p>${collision.crash_time}</p>
+                <p>${collision.on_street_name}</p>
+                <hr>
+                <p>Injured: ${collision.number_of_persons_injured}</p>
+                <p>Killed: ${collision.number_of_persons_killed}</p>
+                <hr>
+                <p>${collision.contributing_factor_vehicle_1}</p>
+                <p>${collision.vehicle_type_code1}</p>
+              </div>`;
   }
-  
+
   output.innerHTML = build;
 }
 
-function filterByBorough() {
+function filterByBorough(){
   let output = document.getElementById("output");
-  let borough = document.getElementById("boroughFilter").value;
+  let borough = document.getElementById("borough").value;
   let result = document.getElementById("result");
+  let build = "";
   let ct = 0;
 
-  for(let i = 0; i < data.length; i += 1) {
+  for(let i = 0; i < data.length; i+=1){
     let collision = data[i];
-    if(collision.borough == borough || borough == "") {
-      let date = collision.crash_date ? collision.crash_date : "N/A";
-      let time = collision.crash_time ? collision.crash_time : "N/A";
-      let borough_name = collision.borough ? collision.borough : "N/A";
-      let street = collision.on_street_name ? collision.on_street_name : "N/A";
-      let injured = collision.number_of_persons_injured ? collision.number_of_persons_injured : "0";
-      let killed = collision.number_of_persons_killed ? collision.number_of_persons_killed : "0";
-      
-      build += "<div class='fitted card'>";
-      build += "<div class='card-title'>Motor Vehicle Collision</div>";
-      build += "<div class='card-section'>" + borough_name + "</div>";
-      build += "<div class='card-section'>" + injured + " Injured</div>";
-      build += "<div class='card-section'>" + street + "</div>";
-      build += "<div class='card-divider'></div>";
-      build += "<div class='card-section'>" + date + " " + time + "</div>";
-      build += "<div class='card-divider'></div>";
-      build += "<div class='card-section'>Casualties: " + killed + "</div>";
-      build += "</div>";
+
+    if(collision.borough == borough){
+      build += `<div class="fitted card">
+                  <h3>${collision.borough}</h3>
+                  <hr>
+                  <p>${collision.crash_date}</p>
+                  <p>${collision.crash_time}</p>
+                  <p>${collision.on_street_name}</p>
+                  <hr>
+                  <p>Injured: ${collision.number_of_persons_injured}</p>
+                  <p>Killed: ${collision.number_of_persons_killed}</p>
+                  <hr>
+                  <p>${collision.contributing_factor_vehicle_1}</p>
+                  <p>${collision.vehicle_type_code1}</p>
+                </div>`;
+
       ct += 1;
     }
   }
 
+  result.innerHTML = `${ct} Results found.`;
   output.innerHTML = build;
 }
 
-let applyBtn = document.getElementById("applyBtn");
+function filterByBoroughAndInjuries(){
+  let output = document.getElementById("output");
+  let borough = document.getElementById("borough2").value;
+  let injuries = document.getElementById("injuries").value;
+  let result = document.getElementById("result");
+  let build = "";
+  let ct = 0;
 
-applyBtn.addEventListener("click", filterByBorough);
+  for(let i = 0; i < data.length; i+=1){
+    let collision = data[i];
 
-init();
+    if(collision.borough == borough && injuries == "1" && collision.number_of_persons_injured == 1){
+      build += `<div class="fitted card">
+                  <h3>${collision.borough}</h3>
+                  <hr>
+                  <p>${collision.crash_date}</p>
+                  <p>${collision.crash_time}</p>
+                  <p>${collision.on_street_name}</p>
+                  <hr>
+                  <p>Injured: ${collision.number_of_persons_injured}</p>
+                  <p>Killed: ${collision.number_of_persons_killed}</p>
+                  <hr>
+                  <p>${collision.contributing_factor_vehicle_1}</p>
+                  <p>${collision.vehicle_type_code1}</p>
+                </div>`;
 
+      ct += 1;
+    }
+
+    if(collision.borough == borough && injuries == "2" && collision.number_of_persons_injured == 2){
+      build += `<div class="fitted card">
+                  <h3>${collision.borough}</h3>
+                  <hr>
+                  <p>${collision.crash_date}</p>
+                  <p>${collision.crash_time}</p>
+                  <p>${collision.on_street_name}</p>
+                  <hr>
+                  <p>Injured: ${collision.number_of_persons_injured}</p>
+                  <p>Killed: ${collision.number_of_persons_killed}</p>
+                  <hr>
+                  <p>${collision.contributing_factor_vehicle_1}</p>
+                  <p>${collision.vehicle_type_code1}</p>
+                </div>`;
+
+      ct += 1;
+    }
+  }
+
+  result.innerHTML = `${ct} Results found.`;
+  output.innerHTML = build;
+}

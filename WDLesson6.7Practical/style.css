@@ -1,113 +1,72 @@
-html, body {
-  margin: 0 auto;
-  font-family: Arial;
-  color: black;
+html,body{
+  margin:0 auto;
+  font-family:Arial;
 }
 
-#banner {
-  background-color: blue;
-  color: white;
-  text-align: center;
-  padding: 20px;
+.container{
+  display:flex;
+  padding:10px;
 }
 
-#banner h1 {
-  font-size: 28px;
-  margin-bottom: 5px;
+.center{
+  justify-content:center;
+  align-items:center;
 }
 
-#banner p {
-  font-size: 14px;
+.subbanner{
+  background-color:cornflowerblue;
 }
 
-.filter-section {
-  background-color: #f0f0f0;
-  padding: 15px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  color: black;
+#banner{
+  background-color:blue;
+  color:white;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-  font-size: 14px;
-  color: black;
+#footer{
+  background-color:cornflowerblue;
+  color:white;
+  left:0;
+  right:0;
+  bottom:0px;
 }
 
-select, input, button {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #999;
-  margin-right: 5px;
-  color: black;
+.card{
+  flex:1;
+  margin:10px;
+  padding:10px;
+  border:1px solid gray;
+  text-align:center;
+  max-width:180px;
+  min-width:180px;
 }
 
-button {
-  background-color: blue;
-  color: white;
-  cursor: pointer;
-  border-radius: 4px;
+.button{
+  text-decoration:none;
+  background-color:blue;
+  color:white;
+  border-radius:4px;
+  padding:6px;
+  box-shadow:2px 2px 2px black;
 }
 
-button:hover {
-  background-color: cornflowerblue;
+.button:hover{
+  background-color:cornflowerblue;
 }
 
-#result {
-  padding: 10px 15px;
-  margin: 10px;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  color: black;
+#output{
+  flex-wrap:wrap;
 }
 
-#output {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  gap: 10px;
+.highlight{
+  font-style:italic;
+  color:blue;
 }
 
-.fitted {
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
+.heading{
+  font-weight:bold;
 }
 
-.card {
-  flex: 1;
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  min-width: 200px;
-  max-width: 250px;
-  color: black;
-}
-
-.card-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.card-section {
-  padding: 10px 0;
-  font-size: 14px;
-  color: black;
-  line-height: 1.5;
-}
-
-.card-divider {
-  margin: 12px 0;
-  border-bottom: 1px solid #ddd;
+select{
+  padding:6px;
+  margin:5px;
 }

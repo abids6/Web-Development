@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>NYC Motor Vehicle Collisions</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="init()">
+
+    <div id="banner" class="container center">
+      <div style="text-align:center">
+        <h1>NYC Open Data</h1>
+        <h2>Motor Vehicle Collisions</h2>
+      </div>
+    </div>
+
+    <div class="container subbanner">
+      <div>
+        <p>This website shows NYC motor vehicle collision data. The user can filter crashes by borough and injury amount.</p>
+        <a class="button" href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a>
+        <a class="button" href="https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data" target="_blank">Collision Dataset</a>
+      </div>
+    </div>
+
+    <div style="padding:20px">
+
+      <h3 style="display:inline;">Search By Borough</h3>
+
+      <select id="borough">
+        <option value="QUEENS">Queens</option>
+        <option value="BROOKLYN">Brooklyn</option>
+        <option value="MANHATTAN">Manhattan</option>
+        <option value="BRONX">Bronx</option>
+        <option value="STATEN ISLAND">Staten Island</option>
+      </select>
+
+      <a class="button" onclick="filterByBorough()"> Search </a>
+
+      <hr>
+
+      <h3 style="display:inline;">Search By Borough and Injuries</h3>
+
+      <select id="borough2">
+        <option value="QUEENS">Queens</option>
+        <option value="BROOKLYN">Brooklyn</option>
+        <option value="MANHATTAN">Manhattan</option>
+        <option value="BRONX">Bronx</option>
+        <option value="STATEN ISLAND">Staten Island</option>
+      </select>
+
+      <select id="injuries">
+        <option value="1">1 injury</option>
+        <option value="2">2 injuries</option>
+      </select>
+
+      <a class="button" onclick="filterByBoroughAndInjuries()"> Search </a>
+
+      <hr>
+    </div>
+
+    <div id="result" class="container">
+    </div>
+
+    <div id="output" class="container">
+    </div>
+
+    <div id="footer" class="container center">
+      <h3>WDLesson6_7Practical</h3>
+    </div>
+
+  </body>
+</html>
