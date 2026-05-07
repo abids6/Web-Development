@@ -2,44 +2,61 @@ html,body{
   margin:0 auto;
   font-family:Arial;
 }
-
 .container{
   display:flex;
   padding:10px;
 }
-
 .center{
   justify-content:center;
   align-items:center;
 }
 
-.subbanner{
+nav{
   background-color:cornflowerblue;
 }
-
+nav a{
+  color:black;
+  padding:10px;
+  flex:1;
+  text-decoration:none;
+  text-align:center;
+}
+nav a:hover{
+  color:white;
+}
+.subbanner{
+  background-color:rgb(200,220,255);
+}
 #banner{
   background-color:blue;
   color:white;
 }
-
 #footer{
   background-color:cornflowerblue;
   color:white;
-  left:0;
-  right:0;
+  /*position:fixed;*/
+  left: 0;
+  right: 0;
   bottom:0px;
 }
-
+ 
 .card{
   flex:1;
   margin:10px;
   padding:10px;
   border:1px solid gray;
   text-align:center;
-  max-width:180px;
-  min-width:180px;
+  box-shadow:2px 2px 2px black;
+  border-radius:2px;
 }
 
+.highlight{
+  font-style:italic;
+  color:blue;
+}
+.heading{
+  font-weight:bold;
+}
 .button{
   text-decoration:none;
   background-color:blue;
@@ -48,25 +65,23 @@ html,body{
   padding:6px;
   box-shadow:2px 2px 2px black;
 }
-
 .button:hover{
   background-color:cornflowerblue;
 }
-
+#leftPanel{
+  flex:1;
+}
+#rightPanel{
+  flex:2;
+}
+.fitted{
+  max-width:200px;
+  min-width:200px;
+}
+.card img{
+  height:100px;
+}
 #output{
+  display:flex;
   flex-wrap:wrap;
-}
-
-.highlight{
-  font-style:italic;
-  color:blue;
-}
-
-.heading{
-  font-weight:bold;
-}
-
-input{
-  padding:6px;
-  margin:5px;
 }

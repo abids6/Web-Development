@@ -29,13 +29,7 @@
 
       <h3 style="display:inline;">Search By Borough</h3>
 
-      <select id="borough">
-        <option value="QUEENS">Queens</option>
-        <option value="BROOKLYN">Brooklyn</option>
-        <option value="MANHATTAN">Manhattan</option>
-        <option value="BRONX">Bronx</option>
-        <option value="STATEN ISLAND">Staten Island</option>
-      </select>
+      <input type="text" id="borough" list="boroughList" placeholder="Enter Borough">
 
       <a class="button" onclick="filterByBorough()"> Search </a>
 
@@ -43,22 +37,31 @@
 
       <h3 style="display:inline;">Search By Borough and Injuries</h3>
 
-      <select id="borough2">
-        <option value="QUEENS">Queens</option>
-        <option value="BROOKLYN">Brooklyn</option>
-        <option value="MANHATTAN">Manhattan</option>
-        <option value="BRONX">Bronx</option>
-        <option value="STATEN ISLAND">Staten Island</option>
-      </select>
+      <input type="text" id="borough2" list="boroughList" placeholder="Enter Borough">
 
-      <select id="injuries">
-        <option value="1">1 injury</option>
-        <option value="2">2 injuries</option>
-      </select>
+      <input type="text" id="injuries" list="injuryList" placeholder="Enter 1 or 2">
 
       <a class="button" onclick="filterByBoroughAndInjuries()"> Search </a>
 
       <hr>
+
+      <datalist id="boroughList">
+        <option value="QUEENS">
+        <option value="Queens">
+        <option value="BROOKLYN">
+        <option value="Brooklyn">
+        <option value="MANHATTAN">
+        <option value="Manhattan">
+        <option value="BRONX">
+        <option value="Bronx">
+        <option value="STATEN ISLAND">
+        <option value="Staten Island">
+      </datalist>
+
+      <datalist id="injuryList">
+        <option value="1">
+        <option value="2">
+      </datalist>
 
     </div>
 

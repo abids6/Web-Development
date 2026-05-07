@@ -2,7 +2,7 @@ let data;
 
 async function init(){
 
-  let link = "https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=100";
+  let link = "https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=1000";
   info = await fetch(link);
   data = await info.json();
 
@@ -56,6 +56,9 @@ async function init(){
 function filterByBorough(){
   let output = document.getElementById("output");
   let borough = document.getElementById("borough").value;
+  borough = borough.toUpperCase();
+  borough = borough.trim();
+
   let result = document.getElementById("result");
   let build = "";
   let ct = 0;
@@ -108,8 +111,14 @@ function filterByBorough(){
 
 function filterByBoroughAndInjuries(){
   let output = document.getElementById("output");
+
   let borough = document.getElementById("borough2").value;
+  borough = borough.toUpperCase();
+  borough = borough.trim();
+
   let injuries = document.getElementById("injuries").value;
+  injuries = injuries.trim();
+
   let result = document.getElementById("result");
   let build = "";
   let ct = 0;
@@ -139,23 +148,7 @@ function filterByBoroughAndInjuries(){
       vehicle = "No Vehicle Listed";
     }
 
-    if(collision.borough == borough && injuries == "1" && collision.number_of_persons_injured == 1 && street != undefined){
-
-      build += `<div class="fitted card">
-                  <h3>${collision.borough}</h3>
-                  <p>${collision.crash_date}</p>
-                  <p>${collision.crash_time}</p>
-                  <p>${street}</p>
-                  <p>Injured: ${collision.number_of_persons_injured}</p>
-                  <p>Killed: ${collision.number_of_persons_killed}</p>
-                  <p>${factor}</p>
-                  <p>${vehicle}</p>
-                </div>`;
-
-      ct += 1;
-    }
-
-    if(collision.borough == borough && injuries == "2" && collision.number_of_persons_injured == 2 && street != undefined){
+    if(collision.borough == borough && collision.number_of_persons_injured == injuries && street != undefined){
 
       build += `<div class="fitted card">
                   <h3>${collision.borough}</h3>
